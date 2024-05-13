@@ -1,11 +1,9 @@
-import './Header.css';
-
-export default function Header() {
+const Header = () => {
   return (
-    <>
-      <header>
-        <h1 className="header-title">都道府県別人口推移</h1>
-      </header>
-    </>
+    <header>
+      <h1>都道府県別人口推移</h1>
+    </header>
   );
 }
+
+export default Header;

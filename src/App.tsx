@@ -1,14 +1,14 @@
 import Header from "./component/Header/Header";
-import PrefecturesParent from "./component/Prefectures/PrefecturesParent";
+import "./App.css"
 
 
 function App () {
   return (
     <>
       <Header />
-      <PrefecturesParent />
     </>
   );
 }
 
 export default App;
+
