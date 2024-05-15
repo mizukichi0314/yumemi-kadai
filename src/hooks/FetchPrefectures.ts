@@ -26,7 +26,7 @@ const FetchPrefectures = async():Promise<Prefectures[]> => {
     if (response.data.statusCode === "404") {
       throw new Error("404 Not Found");
     }
-    console.log(response.data);
+    // console.log(response.data);
     return response.data.result;
   } catch (error) {
     console.error(error);
