@@ -15,15 +15,15 @@ export const Checkbox = ({
   handleChange,
   isChecked
 }: CheckboxProps): JSX.Element => {
-  
+
   return (
     <>
       <input
         type='checkbox'
         id={id}
         value={value}
+        checked={isChecked}
         onChange={handleChange}
-        disabled={isChecked}
       />
       <label htmlFor={id}>{text}</label>
     </>

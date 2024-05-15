@@ -1,10 +1,9 @@
 import React from "react";
 import { Checkbox } from "../Parts/Checkbox";
-import { Prefectures } from "../../types/Prefectures";
-
+import { Prefecture } from "../../types/Prefectures";
 
 interface PrefecturesProps {
-  data: Prefectures | undefined;
+  data: Prefecture[];
   isCheckbox: boolean;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -20,19 +19,21 @@ export const PrefecturesList = ({
       <h2>都道府県一覧</h2>
       <form>
         <ul>
-          {data?.result.map((prefecture, key) => {
-            return (
+          {Array.isArray(data) ? (
+            data.map((prefecture, key) => (
               <li key={key}>
                 <Checkbox
-                  id={prefecture.prefCode}
+                  id={prefecture.prefCode.toString()}
                   value={prefecture.prefName}
                   text={prefecture.prefName}
                   handleChange={handleChange}
-                  isCheckbox={isCheckbox}
+                  isCheckbox={false}
                 />
               </li>
-            );
-          })}
+            ))
+          ) : (
+            <li>loading...</li>
+          )}
         </ul>
       </form>
     </>
