@@ -1,4 +1,32 @@
 body {
-  text-align: center;
+  max-width: 100%;
+  margin:0
+}
+
+li {
+  list-style: none;
+}
+
+ul {
   margin: 0;
+}
+
+.page-title {
+  font-size: 40px;
+  margin: 20px 0 35px 0;
+  text-align: center;
+}
+
+.section-title {
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.prefectures-item {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  text-align: center;
+  background-color: rgb(248, 246, 227);
+  padding: 26px 0;
 }

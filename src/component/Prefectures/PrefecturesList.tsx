@@ -16,26 +16,24 @@ export const PrefecturesList = ({
 
   return (
     <>
-      <h2>都道府県一覧</h2>
-      <form>
-        <ul>
-          {Array.isArray(data) ? (
-            data.map((prefecture, key) => (
-              <li key={key}>
-                <Checkbox
-                  id={prefecture.prefCode.toString()}
-                  value={prefecture.prefName}
-                  text={prefecture.prefName}
-                  handleChange={handleChange}
-                  isCheckbox={false}
-                />
-              </li>
-            ))
-          ) : (
-            <li>loading...</li>
-          )}
-        </ul>
-      </form>
+      <h2 className="section-title">都道府県を選択してください</h2>
+      <ul className="prefectures-item">
+      {Array.isArray(data) ? (
+        data.map((prefecture, key) => (
+          <li key={key}>
+            <Checkbox
+              id={prefecture.prefCode.toString()}
+              value={prefecture.prefName}
+              text={prefecture.prefName}
+              handleChange={handleChange}
+              isCheckbox={false}
+            />
+          </li>
+        ))
+        ) : (
+          <li>loading...</li>
+        )}
+      </ul>
     </>
   );
 };
