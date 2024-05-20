@@ -1,13 +1,15 @@
 import Header from "./component/Header/Header";
 import "./App.css"
 import { useEffect, useState } from "react";
-import { Prefecture } from "./types/Prefectures";
+import { PopulationDataType, Prefecture } from "./types/Prefectures";
 import FetchPrefectures from "./hooks/FetchPrefectures";
 import { PrefecturesList } from "./component/Prefectures/PrefecturesList";
+import { PopulationComposition } from "./component/population/PopulationComposition";
 
 const App = () => {
   const [prefectures, setPrefectures] = useState<Prefecture[]>([]);
   const [selectedPrefectures, setSelectedPrefectures] = useState<number[]>([]);
+  const [populationComposition, setPopulationComposition] = useState<PopulationDataType>('total');
 
   useEffect(() => {
     const fetchPrefecturesData = async () => {
@@ -47,6 +49,13 @@ const App = () => {
             <li key={prefCode}>{prefCode}</li>
           ))}
         </ul>
+      </section>
+
+      <section>
+        <PopulationComposition
+          populationComposition={populationComposition}
+          setPopulationComposition={setPopulationComposition}
+        />
       </section>
     </>
   );

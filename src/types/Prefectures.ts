@@ -7,3 +7,9 @@ export interface Prefectures {
   message: string | null;
   result: Prefecture[];
 }
+
+export type PopulationDataType = 
+  | 'total'
+  | 'young'
+  | 'production age'
+  | 'elderly';
