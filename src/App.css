@@ -36,10 +36,10 @@ ul {
   justify-content: center;
 }
 
-.composition-item {
+.composition-list {
   margin-right: 20px;
 }
 
-.composition-item:last-child {
+.composition-list:last-child {
   margin-right: 0;
 }

@@ -13,3 +13,8 @@ export type PopulationDataType =
   | 'young'
   | 'production age'
   | 'elderly';
+
+export interface PopulationDataYear {
+  year: number;
+  [prefecture: string]: number;
+}
