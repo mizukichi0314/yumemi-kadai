@@ -4,13 +4,13 @@ import { Prefecture } from "../../types/Prefectures";
 
 interface PrefecturesProps {
   data: Prefecture[];
-  isCheckbox: boolean;
+  selectedPrefectures: number[];
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const PrefecturesList = ({
   data,
-  isCheckbox,
+  selectedPrefectures,
   handleChange,
 }: PrefecturesProps): JSX.Element => {
 
@@ -26,7 +26,7 @@ export const PrefecturesList = ({
               value={prefecture.prefName}
               text={prefecture.prefName}
               handleChange={handleChange}
-              isCheckbox={false}
+              isChecked={selectedPrefectures.includes(prefecture.prefCode)}
             />
           </li>
         ))

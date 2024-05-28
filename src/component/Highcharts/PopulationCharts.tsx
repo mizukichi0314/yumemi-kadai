@@ -31,7 +31,7 @@ export const PopulationCharts = ({
     })) || []
   );
 
-  const mergedData = allData.reduce((acc, item) => {
+  const mergedData = allData.reduce((acc: {year: number; [key:string]: number}[], item) => {
     const existing = acc.find((d) => d.year === item.year);
     if (existing) {
       return acc.map((d) =>
@@ -45,7 +45,7 @@ export const PopulationCharts = ({
     <ResponsiveContainer width="100%" height={400}>
       <LineChart data={mergedData} margin={{ top: 50, left: 50, right: 50, bottom: 50 }}>
          <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-         <XAxis dataKey="year" type="number" domain={[1990, 2020]} />
+         <XAxis dataKey="year" type="number" domain={[1960, 2020]} />
          <YAxis type="number" domain={['0', 'auto']} />
          <Tooltip />
          <Legend />
@@ -62,6 +62,3 @@ export const PopulationCharts = ({
     </ResponsiveContainer>
   );
 };
-
-
-

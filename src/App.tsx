@@ -82,7 +82,7 @@ const App = () => {
       <section>
         <PrefecturesList
           data={prefectures}
-          isCheckbox={true}
+          selectedPrefectures={selectedPrefectures}
           handleChange={handleCheckboxChange}
         />
       </section>
