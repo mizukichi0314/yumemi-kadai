@@ -3,18 +3,22 @@ export interface Prefecture {
   prefName: string;
 }
 
-export interface Prefectures {
+export interface PrefectureResponse {
   message: string | null;
   result: Prefecture[];
 }
 
 export type PopulationDataType = 
-  | 'total'
-  | 'young'
-  | 'production age'
-  | 'elderly';
+  | '総人口'
+  | '年少人口'
+  | '生産年齢人口'
+  | '老年人口';
 
+
+  export interface PopulationDataItem {
+    year: number;
+    value: number;
+  }
 export interface PopulationDataYear {
-  year: number;
-  [prefecture: string]: number;
+  [year: number]: PopulationDataItem[];
 }
