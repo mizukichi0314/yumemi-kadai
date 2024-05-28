@@ -19,6 +19,19 @@ export type PopulationDataType =
     year: number;
     value: number;
   }
+
+  export interface PopulationData {
+    label: string;
+    data: PopulationDataItem[];
+  }
+
+  export interface PopulationCompositionResponse {
+    massage: string | null;
+    result: {
+      boundaryYear: number;
+      data: PopulationData[];
+    };
+  }
 export interface PopulationDataYear {
   [year: number]: PopulationDataItem[];
 }

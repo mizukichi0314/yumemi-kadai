@@ -8,24 +8,22 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { PopulationDataType, PopulationDataYear } from '../../types/Prefectures';
+import { PopulationDataYear } from '../../types/Prefectures';
 
 interface Props {
   prefecturePopulation: PopulationDataYear;
-  populationComposition: PopulationDataType;
   prefectureNames: {[key: number]: string}; 
 }
 
 export const PopulationCharts = ({
   prefecturePopulation,
-  populationComposition,
   prefectureNames,
 }: Props): JSX.Element => {
   const colors = ['#8884d8', '#82ca9d', '#ffc658', '#ff7300', '#ff0000', '#00ff00', '#0000ff'];
   const prefCodes = Object.keys(prefecturePopulation);
 
   const allData = prefCodes.flatMap((prefCode) => 
-    prefecturePopulation[prefCode]?.map((item) => ({
+    prefecturePopulation[parseInt(prefCode)]?.map((item: {year: number; value: number}) => ({
       year: item.year,
       [prefectureNames[parseInt(prefCode)]]: item.value,
     })) || []

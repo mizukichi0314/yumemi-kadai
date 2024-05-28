@@ -30,7 +30,8 @@ const App = () => {
     const fetchPopulationData = async (prefCode: number) => {
       try {
         const data = await fetchPopulationComposition(prefCode);
-        return { [prefCode]: data.find((d) => d.label === populationComposition)?.data || [] };
+        const populationDataItem = data.find((d) => d.label === populationComposition);
+        return { [prefCode]: populationDataItem ? populationDataItem.data : [] };
       } catch (error) {
         console.error('Error fetching population composition data', error);
         return {};
@@ -95,7 +96,6 @@ const App = () => {
         {selectedPrefectures.length > 0 && (
           <PopulationCharts
             prefecturePopulation={populationData}
-            populationComposition={populationComposition}
             prefectureNames={prefectureNames}
           />
         )}
@@ -105,4 +105,3 @@ const App = () => {
 };
 
 export default App;
-
